@@ -1,0 +1,158 @@
+Abyssinian
+Affenpinscher
+Afghan Hound
+African Hunting Dog
+Airedale
+Alexandrine Parakeet
+American Bobtail
+American Shorthair
+American Staffordshire Terrier
+Appenzeller
+Australian Terrier
+Basenji
+Basset
+Beagle
+Bedlington Terrier
+Bengal
+Bernese Mountain Dog
+Birman
+Black And Tan Coonhound
+Blenheim Spaniel
+Bloodhound
+Bluetick
+Bombay
+Border Collie
+Border Terrier
+Borzoi
+Boston Bull
+Bouvier Des Flandres
+Boxer
+Brabancon Griffon
+Briard
+British Shorthair
+Brittany Spaniel
+Bull Mastiff
+Cairn
+Canary
+Cardigan
+Chesapeake Bay Retriever
+Chihuahua
+Chow
+Clumber
+Cockatoo
+Cocker Spaniel
+Collie
+Curly Coated Retriever
+Dandie Dinmont
+Dhole
+Dingo
+Doberman
+Double Eyed Fig Parrot
+Egyptian Mau
+English Foxhound
+English Setter
+English Springer
+Entlebucher
+Eskimo Dog
+European Turtle Dove
+Flat Coated Retriever
+French Bulldog
+Gang Gang Cockatoo
+German Shepherd
+German Short Haired Pointer
+Giant Schnauzer
+Golden Parakeet
+Golden Retriever
+Gordon Setter
+Great Dane
+Great Pyrenees
+Greater Swiss Mountain Dog
+Green Winged Dove
+Groenendael
+Himalayan
+Hyacinth Macaw
+Ibizan Hound
+Irish Setter
+Irish Terrier
+Irish Water Spaniel
+Irish Wolfhound
+Italian Greyhound
+Jandaya Parakeet
+Japanese Spaniel
+Keeshond
+Kelpie
+Kerry Blue Terrier
+Komondor
+Kuvasz
+Labrador Retriever
+Lakeland Terrier
+Leonberg
+Lhasa
+Maine Coon
+Malamute
+Malinois
+Maltese Dog
+Manx
+Mexican Hairless
+Military Macaw
+Miniature Pinscher
+Miniature Poodle
+Miniature Schnauzer
+Mourning Dove
+Newfoundland
+Norfolk Terrier
+Norwegian Elkhound
+Norwich Terrier
+Old English Sheepdog
+Otterhound
+Papillon
+Pekinese
+Pembroke
+Persian
+Pomeranian
+Pug
+Ragdoll
+Red Wiskered Bulbul
+Redbone
+Rhodesian Ridgeback
+Rock Dove
+Rose Breasted Cockatoo
+Rosy Faced Lovebird
+Rottweiler
+Russian Blue
+Saint Bernard
+Saluki
+Samoyed
+Scarlet Crowned Fruit Dove
+Scarlet Macaw
+Schipperke
+Scotch Terrier
+Scottish Deerhound
+Scottish Fold
+Sealyham Terrier
+Shetland Sheepdog
+Shih Tzu
+Siamese
+Siberian Husky
+Silky Terrier
+Soft Coated Wheaten Terrier
+Sphynx
+Staffordshire Bullterrier
+Standard Poodle
+Standard Schnauzer
+Sussex Spaniel
+Tibetan Mastiff
+Tibetan Terrier
+Toy Poodle
+Toy Terrier
+Turkish Angora
+Tuxedo
+Vizsla
+Walker Hound
+Weimaraner
+Welsh Springer Spaniel
+West Highland White Terrier
+Whippet
+Wire Haired Fox Terrier
+Yorkshire Terrier
+Zebra Dove

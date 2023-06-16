@@ -1,3 +1,5 @@
+Heiwan API List and How to Use It
+
 /get-animals
 method: GET
 This is used to GET all the animals available from the database. This code block is using pagination

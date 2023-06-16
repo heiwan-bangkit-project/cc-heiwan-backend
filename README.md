@@ -86,4 +86,4 @@ In this project, we just use one VM instance (Compute Engine). Inside this Compu
 database to save the data (animals and sellers). We also use Cloud Storage to save the photo of the animal uploaded by the user, so the app can display it via 
 Google Cloud Storage service account integrated with the backend
 
-# CC TeamsC024DSX1613, C169DSY3331 
+# CC Teams C024DSX1613, C169DSY3331 

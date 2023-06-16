@@ -85,3 +85,6 @@ tfserving. And then tfserving will process it and give the result back to the AP
 In this project, we just use one VM instance (Compute Engine). Inside this Compute Engine, there are Docker installerd to serve the tfserving models. There are also the
 database to save the data (animals and sellers). We also use Cloud Storage to save the photo of the animal uploaded by the user, so the app can display it via 
 Google Cloud Storage service account integrated with the backend
+
+CC Teams
+C024DSX1613, C169DSY3331 

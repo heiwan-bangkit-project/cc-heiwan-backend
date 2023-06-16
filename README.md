@@ -77,7 +77,7 @@ Example data:
 }
 
 /pred
-This block is used to start image recognition. The "main.py" will start resizing the photo uploaded by user and start the image prediction by sending itu to the
+This block is used to start image recognition. The "main.py" will start resizing the photo uploaded by user and start the image prediction by sending it to the
 tfserving. And then tfserving will process it and give the result back to the API. Then after that, the API will give the result and display it to the user in the app
 
 In this project, we just use one VM instance (Compute Engine). Inside this Compute Engine, there are Docker installerd to serve the tfserving models. There are also the

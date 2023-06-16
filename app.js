@@ -42,11 +42,11 @@ app.get('/get-animals', (req, res) => {
       const offset = (page - 1) * resultsPerPage;
   
       // jika page lebih besar dari total page
-      if(page > totalPages){
+     /* if(page > totalPages){
         return res.status(404).json({
           message: "Page not found"
         })
-      }
+      }*/
   
       const query = `SELECT id, name, description, price, image, uuid 
         FROM animals
@@ -71,21 +71,19 @@ app.get('/get-animals', (req, res) => {
     })
 });
 
-
-
 app.get('/products', function (req, res) {
   const param = req.query;
   const uuid = param.uuid;
-  const queryStr = 'SELECT id, name, description, price, image FROM animals WHERE uuid = ? AND deleted_at IS NULL';
+  const queryStr = 'SELECT id, name, description, price, image, uuid FROM animals WHERE uuid = ? AND deleted_at IS NULL';
   const values = [uuid];
   conn.query(queryStr, values, (err, results) => {
     if(err){
       return res.status(500).json({
         message: "Internal server error"
       })
-    } else if(uuid == undefined){
+    } else if(uuid === undefined){
       return res.status(404).json({
-        message: "Animal not found"
+        message: "Products not found"
       })
     } 
     else {
@@ -123,29 +121,46 @@ conn.query(queryStr, values, (err, results) => {
   })
 })
 
-  app.get('/get-animal-by-name', function (req, res) {
-    const param = req.query;
-    const name = param.name;
-    const queryStr = 'SELECT id, name, description, price, image FROM animals WHERE name LIKE ? AND deleted_at IS NULL';
-    const values = ['%' + name + '%'];
-    conn.query(queryStr, values, (err, results) => {
-      if (err) {
-        return res.status(500).json({
-          message: "Internal server error"
-        })
-      } else if(name == undefined){
+app.get('/get-animal-by-name', function (req, res) {
+  const param = req.query;
+  const name = param.name;
+  const page = parseInt(param.page) || 1; // Get the requested page number or default to 1
+  const limit = 6; // Number of items per page
+  const offset = (page - 1) * limit; // Calculate the offset for the SQL query
+
+  const queryStr = 'SELECT id, name, description, price, image FROM animals WHERE name LIKE ? AND deleted_at IS NULL';
+  const values = ['%' + name + '%'];
+
+  conn.query(queryStr, values, (err, results) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Internal server error"
+      });
+    } else if (name == undefined) {
+      return res.status(404).json({
+        message: "Animal not found"
+      });
+    } else {
+      const totalItems = results.length;
+      const totalPages = Math.ceil(totalItems / limit);
+      
+      if (page > totalPages) {
         return res.status(404).json({
-          message: "Animal not found"
+          message: "Page not found"
         })
-      } else {
-        return res.status(200).json({
-          "success" : true,
-          "message" : "Sukses menampilkan data",
-          "data" : results
-        });
       }
-    })
-  })
+
+      const paginatedResults = results.slice(offset, offset + limit);
+
+      return res.status(200).json({
+        message: "Success",
+        data: paginatedResults,
+        page,
+        totalPages
+      });
+    }
+  });
+});
 
   app.post('/store-animal', async function (req, res) {
     let processFile = Multer({
@@ -180,8 +195,9 @@ conn.query(queryStr, values, (err, results) => {
     const description = param.description;
     const price = param.price;
     const image = url;
-    const queryStr = 'INSERT INTO animals (name, description, price, image) VALUES (?, ?, ?, ?)';
-    const values = [name, description, price, image];
+    const uuid = param.uuid;
+    const queryStr = 'INSERT INTO animals (name, description, price, image, uuid) VALUES (?, ?, ?, ?, ?)';
+    const values = [name, description, price, image, uuid];
   
     conn.query(queryStr, values, (err, results) => {
       if (err) {
@@ -265,9 +281,9 @@ conn.query(queryStr, values, (err, results) => {
 
   app.get('/get-seller', function (req, res) {
     const param = req.query;
-    const id = param.id;
-    const queryStr = 'SELECT id, name, email, phone FROM seller WHERE id = ?';
-    const values = [id];
+    const uuid = param.uuid;
+    const queryStr = 'SELECT uuid, name, email, phone FROM seller WHERE uuid = ?';
+    const values = [uuid];
     conn.query(queryStr, values, (err, results) => {
       if (err) {
         return res.status(500).json({
@@ -286,11 +302,39 @@ conn.query(queryStr, values, (err, results) => {
   app.post('/store-seller', function (req, res) {
     console.log(req.body);
     const param = req.body;
+    const uuid = param.uuid;
     const name = param.name;
     const email = param.email;
     const phone = param.phone;
-    const queryStr = 'INSERT INTO seller (name, email, phone) VALUES (?, ?, ?)';
-    const values = [name, email, phone];
+    const queryStr = 'INSERT INTO seller (uuid, name, email, phone) VALUES (?, ?, ?, ?)';
+    const values = [uuid, name, email, phone];
+  
+    conn.query(queryStr, values, (err, results) => {
+      if (err) {
+        return res.status(500).json({
+            "success": false,
+            "message": err.sqlMessage,
+            "data": null
+        })
+      } else {
+        return res.status(200).json({
+          "success" : true,
+          "message" : "Sukses menyimpan data",
+          "data" : results
+        });
+      }
+    })
+  })  
+
+  app.post('/update-seller', function (req, res) {
+    console.log(req.body);
+    const param = req.body;
+    const uuid = param.uuid;
+    const name = param.name;
+    const email = param.email;
+    const phone = param.phone;
+    const queryStr = 'UPDATE seller SET name = ?, email = ?, phone = ? WHERE uuid = ?';
+    const values = [ name, email, phone, uuid];
   
     conn.query(queryStr, values, (err, results) => {
       if (err) {
